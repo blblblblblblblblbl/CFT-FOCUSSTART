@@ -1,5 +1,6 @@
 package blblblbl.cftfocus.history.ui
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Card
@@ -24,8 +25,13 @@ fun HistoryFragmentCompose(){
         LazyColumn(){
             items(lazyHistoryItems){item->
                 Card(modifier = Modifier.padding(10.dp)) {
-                    item?.query?.let { query ->
-                        Text(text = query)
+                    Column() {
+                        item?.query?.let { query ->
+                            Text(text = query)
+                        }
+                        item?.binInfo?.let {binInfo->
+                            Text(text = binInfo.toString())
+                        }
                     }
                 }
             }
