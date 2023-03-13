@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "BinList"
 include ':app'
+include ':feature'
+include ':feature:search'
