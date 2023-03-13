@@ -16,3 +16,6 @@ rootProject.name = "BinList"
 include ':app'
 include ':feature'
 include ':feature:search'
+include ':feature:history'
+include ':shared'
+include ':shared:database'
