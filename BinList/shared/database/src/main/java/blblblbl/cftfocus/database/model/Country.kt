@@ -1,4 +1,5 @@
-package blblblbl.cftfocus.search.domain.model
+package blblblbl.cftfocus.database.model
+
 
 
 data class Country(

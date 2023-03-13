@@ -1,13 +1,13 @@
-package blblblbl.cftfocus.binlist.di.database
+package blblblbl.cftfocus.binlist.di.database.history
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.map
-import blblblbl.cftfocus.database.model.BinInfoEntity
+import blblblbl.cftfocus.binlist.di.database.DataBaseCreator
+import blblblbl.cftfocus.binlist.di.database.search.mapToSearch
 import blblblbl.cftfocus.history.data.database.DatabaseHistory
 import blblblbl.cftfocus.history.data.model.HistoryElement
-import blblblbl.cftfocus.search.data.model.BinInfo
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -31,7 +31,8 @@ class HistoryDBModule{
                 ).flow.map { pagingData->
                     pagingData.map { binInfoEntity->
                         HistoryElement(
-                            query = binInfoEntity.bin
+                            query = binInfoEntity.bin,
+                            binInfo = binInfoEntity.binInfo.mapToHistory()
                         )
                     }
                 }
