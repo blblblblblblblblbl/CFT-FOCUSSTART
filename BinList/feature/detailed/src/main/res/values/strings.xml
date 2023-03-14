@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="website">website</string>
+    <string name="city">city</string>
+    <string name="phone">phone</string>
+    <string name="country">country</string>
+    <string name="scheme">scheme</string>
+    <string name="type">type</string>
+    <string name="brand">brand</string>
+    <string name="prepaid">prepaid</string>
+    <string name="length">length</string>
+    <string name="luhn">luhn</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
+</resources>

@@ -1,6 +1,8 @@
 package blblblbl.cftfocus.binlist.ui
 
+import android.app.Application
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.padding
@@ -14,6 +16,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import blblblbl.cftfocus.binlist.R
+import blblblbl.cftfocus.binlist.app.MyApp
 import blblblbl.cftfocus.binlist.navigation.AppTabRow
 import blblblbl.cftfocus.binlist.navigation.Search
 import blblblbl.cftfocus.binlist.navigation.appTabRowScreens

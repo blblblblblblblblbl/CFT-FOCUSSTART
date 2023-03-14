@@ -1,11 +1,15 @@
 package blblblbl.cftfocus.detailed.ui
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
+import androidx.compose.material.icons.filled.NetworkCheck
+import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material.icons.outlined.LocationOn
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -18,12 +22,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import blblblbl.cftfocus.detailed.R
 import blblblbl.cftfocus.detailed.domain.model.Bank
 import blblblbl.cftfocus.detailed.domain.model.BinInfo
 import blblblbl.cftfocus.detailed.domain.model.Country
@@ -75,7 +78,7 @@ fun BankInfoView(
         }
         bank.url?.let { url ->
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                Text(text = "website", style = MaterialTheme.typography.headlineMedium)
+                Text(text = stringResource(id = R.string.website), style = MaterialTheme.typography.headlineMedium)
                 Text(
                     text = url,
                     style = MaterialTheme.typography.bodyMedium,
@@ -93,16 +96,16 @@ fun BankInfoView(
         ) {
             bank.city?.let {city->
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    Text(text = "city", style = MaterialTheme.typography.headlineMedium)
-                    Text(text = "$city", style = MaterialTheme.typography.bodyMedium)
+                    Text(text = stringResource(id = R.string.city), style = MaterialTheme.typography.headlineMedium)
+                    Text(text = city, style = MaterialTheme.typography.bodyMedium)
                 }
             }
             bank.phone?.let {phone->
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    Text(text = "phone", style = MaterialTheme.typography.headlineMedium)
+                    Text(text = stringResource(id = R.string.phone), style = MaterialTheme.typography.headlineMedium)
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(
-                            text = "$phone",
+                            text = phone,
                             style = MaterialTheme.typography.bodyMedium,
                             modifier = Modifier.clickable { phoneOnClick() }
                         )
@@ -123,7 +126,7 @@ fun CountryInfoView(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         country.name?.let {name->
-            Text(text = "country", style = MaterialTheme.typography.headlineMedium)
+            Text(text = stringResource(id = R.string.country), style = MaterialTheme.typography.headlineMedium)
             Row(verticalAlignment = Alignment.CenterVertically) {
                 country.name?.let {name->
                     Text(text = name, style = MaterialTheme.typography.bodyMedium)
@@ -161,14 +164,14 @@ fun CardInfoView(
         ) {
             scheme?.let {scheme->
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    Text(text = "scheme", style = MaterialTheme.typography.headlineMedium)
-                    Text(text = "$scheme", style = MaterialTheme.typography.bodyMedium)
+                    Text(text = stringResource(id = R.string.scheme), style = MaterialTheme.typography.headlineMedium)
+                    Text(text = scheme, style = MaterialTheme.typography.bodyMedium)
                 }
             }
             type?.let {type->
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    Text(text = "type", style = MaterialTheme.typography.headlineMedium)
-                    Text(text = "$type", style = MaterialTheme.typography.bodyMedium)
+                    Text(text = stringResource(id = R.string.type), style = MaterialTheme.typography.headlineMedium)
+                    Text(text = type, style = MaterialTheme.typography.bodyMedium)
                 }
 
             }
@@ -183,17 +186,17 @@ fun CardInfoView(
         ) {
             brand?.let {brand->
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    Text(text = "brand", style = MaterialTheme.typography.headlineMedium)
-                    Text(text = "$brand", style = MaterialTheme.typography.bodyMedium)
+                    Text(text = stringResource(id = R.string.brand), style = MaterialTheme.typography.headlineMedium)
+                    Text(text = brand, style = MaterialTheme.typography.bodyMedium)
                 }
             }
             prepaid?.let {prepaid->
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    Text(text = "prepaid", style = MaterialTheme.typography.headlineMedium)
+                    Text(text = stringResource(id = R.string.prepaid), style = MaterialTheme.typography.headlineMedium)
                     Row {
-                        Text(text = "Yes", style = MaterialTheme.typography.bodyMedium, modifier = Modifier.alpha(if (prepaid) 1f else 0.5f))
+                        Text(text = stringResource(id = R.string.yes), style = MaterialTheme.typography.bodyMedium, modifier = Modifier.alpha(if (prepaid) 1f else 0.5f))
                         Text(text = "/", style = MaterialTheme.typography.bodyMedium)
-                        Text(text = "No", style = MaterialTheme.typography.bodyMedium, modifier = Modifier.alpha(if (!prepaid) 1f else 0.5f))
+                        Text(text = stringResource(id = R.string.no), style = MaterialTheme.typography.bodyMedium, modifier = Modifier.alpha(if (!prepaid) 1f else 0.5f))
                     }
                 }
 
@@ -212,17 +215,17 @@ fun NumberInfoView(number: blblblbl.cftfocus.detailed.domain.model.Number){
     ) {
         number.length?.let {length->
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                Text(text = "length", style = MaterialTheme.typography.headlineMedium)
+                Text(text = stringResource(id = R.string.length), style = MaterialTheme.typography.headlineMedium)
                 Text(text = "$length", style = MaterialTheme.typography.bodyMedium)
             }
         }
         number.luhn?.let {luhn->
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                Text(text = "luhn", style = MaterialTheme.typography.headlineMedium)
+                Text(text = stringResource(id = R.string.luhn), style = MaterialTheme.typography.headlineMedium)
                 Row {
-                    Text(text = "Yes", style = MaterialTheme.typography.bodyMedium, modifier = Modifier.alpha(if (luhn) 1f else 0.5f))
+                    Text(text = stringResource(id = R.string.yes), style = MaterialTheme.typography.bodyMedium, modifier = Modifier.alpha(if (luhn) 1f else 0.5f))
                     Text(text = "/", style = MaterialTheme.typography.bodyMedium)
-                    Text(text = "No", style = MaterialTheme.typography.bodyMedium, modifier = Modifier.alpha(if (!luhn) 1f else 0.5f))
+                    Text(text = stringResource(id = R.string.no), style = MaterialTheme.typography.bodyMedium, modifier = Modifier.alpha(if (!luhn) 1f else 0.5f))
                 }
             }
 
