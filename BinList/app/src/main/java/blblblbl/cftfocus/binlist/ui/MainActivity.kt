@@ -7,9 +7,12 @@ import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.toArgb
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -24,14 +27,20 @@ import blblblbl.cftfocus.binlist.navigation.appTabRowScreens
 import blblblbl.cftfocus.binlist.navigation.graphs.historyGraph
 import blblblbl.cftfocus.binlist.ui.theming.AppTheme
 import blblblbl.cftfocus.search.ui.SearchFragmentCompose
+import com.google.android.material.elevation.SurfaceColors
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContent {
             AppTheme() {
+                val color = MaterialTheme.colorScheme.secondaryContainer.toArgb()
+                window.statusBarColor = color
+                window.navigationBarColor = color
                 AppScreen()
             }
         }
