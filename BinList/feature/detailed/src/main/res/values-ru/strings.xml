@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="website">вебсайт</string>
+    <string name="city">город</string>
+    <string name="phone">телефон</string>
+    <string name="country">страна</string>
+    <string name="scheme">схема</string>
+    <string name="type">тип</string>
+    <string name="brand">марка</string>
+    <string name="prepaid">предоплата</string>
+    <string name="length">длина</string>
+    <string name="luhn">luhn</string>
+    <string name="yes">да</string>
+    <string name="no">нет</string>
+</resources>

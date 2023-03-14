@@ -48,7 +48,7 @@ fun AppTabRow(
         ) {
             allScreens.forEach { screen ->
                 AppTab(
-                    text = screen.route,
+                    text = screen.name,
                     icon = screen.icon,
                     onSelected = { onTabSelected(screen) },
                     selected = currentScreen == screen
