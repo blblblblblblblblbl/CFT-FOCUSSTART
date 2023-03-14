@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.widget.Toast
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -32,8 +33,15 @@ fun SearchFragmentCompose(
     val viewModel: SearchFragmentViewModel = hiltViewModel()
     val searchQuery by viewModel.searchQuery
     val searchedBin = viewModel.searchedBin.collectAsState()
+    val errorState by viewModel.errorMessage.collectAsState()
     val context = LocalContext.current
     val phonePermissionState = rememberPermissionState(permission = Manifest.permission.CALL_PHONE)
+
+    if (errorState!=null){
+        Toast.makeText(context,errorState,Toast.LENGTH_SHORT).show()
+        viewModel.errorMessageShown()
+    }
+
     Scaffold(
         containerColor = MaterialTheme.colorScheme.surface,
         topBar = {

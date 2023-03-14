@@ -15,6 +15,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -55,7 +56,7 @@ fun SearchWidget(
                 IconButton(
                     modifier = Modifier
                         .alpha(alpha = 0.5f),
-                    onClick = {}
+                    onClick = {onSearchClicked(text)}
                 ) {
                     Icon(
                         imageVector = Icons.Default.Search,
@@ -84,7 +85,8 @@ fun SearchWidget(
                 }
             },
             keyboardOptions = KeyboardOptions(
-                imeAction = ImeAction.Search
+                imeAction = ImeAction.Search,
+                keyboardType = KeyboardType.Number
             ),
             keyboardActions = KeyboardActions(
                 onSearch = {

@@ -1,6 +1,7 @@
 package blblblbl.cftfocus.binlist.di.api
 
 import android.content.Context
+import blblblbl.cftfocus.binlist.di.api.utils.NetworkConnectionInterceptor
 import com.google.gson.GsonBuilder
 import dagger.hilt.android.qualifiers.ApplicationContext
 import okhttp3.OkHttpClient
@@ -10,6 +11,7 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class RetrofitCreator @Inject constructor(
+    private val networkConnectionInterceptor: NetworkConnectionInterceptor
 ) {
     private val BASE_URL = "https://lookup.binlist.net/"
     private val gson = GsonBuilder().setLenient().create()
@@ -30,6 +32,7 @@ class RetrofitCreator @Inject constructor(
                 OkHttpClient.Builder()
                     .connectTimeout(60L, TimeUnit.SECONDS)
                     .readTimeout(60L, TimeUnit.SECONDS)
+                    .addInterceptor(networkConnectionInterceptor)
                     .build()
             )
             .addConverterFactory(GsonConverterFactory.create(gson))
