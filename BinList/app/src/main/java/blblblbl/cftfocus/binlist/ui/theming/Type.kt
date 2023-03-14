@@ -31,11 +31,11 @@ val UnsplashTypography = Typography(
     ),
     bodyLarge = TextStyle(
         fontWeight = FontWeight.Normal,
-        fontSize = 20.sp
+        fontSize = 30.sp
     ),
     bodyMedium = TextStyle(
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp
+        fontSize = 24.sp
     ),
     bodySmall = TextStyle(
         fontSize = 10.sp

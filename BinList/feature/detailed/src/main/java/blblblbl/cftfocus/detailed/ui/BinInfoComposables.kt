@@ -1,15 +1,11 @@
-package blblblbl.cftfocus.search.ui
+package blblblbl.cftfocus.detailed.ui
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.NetworkCheck
-import androidx.compose.material.icons.filled.Phone
+import androidx.compose.material.icons.filled.*
 import androidx.compose.material.icons.outlined.LocationOn
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -17,16 +13,21 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import blblblbl.cftfocus.search.domain.model.Bank
-import blblblbl.cftfocus.search.domain.model.BinInfo
-import blblblbl.cftfocus.search.domain.model.Country
+import blblblbl.cftfocus.detailed.domain.model.Bank
+import blblblbl.cftfocus.detailed.domain.model.BinInfo
+import blblblbl.cftfocus.detailed.domain.model.Country
+
 
 @Composable
 fun BinInfoView(
@@ -138,7 +139,7 @@ fun CountryInfoView(
             }
         }
 
-
+        
     }
 }
 @Composable
@@ -155,7 +156,7 @@ fun CardInfoView(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
-                .align(Alignment.CenterHorizontally),
+                .align(CenterHorizontally),
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             scheme?.let {scheme->
@@ -177,7 +178,7 @@ fun CardInfoView(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .fillMaxWidth()
-                .align(Alignment.CenterHorizontally),
+                .align(CenterHorizontally),
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             brand?.let {brand->
@@ -203,7 +204,7 @@ fun CardInfoView(
     }
 }
 @Composable
-fun NumberInfoView(number: blblblbl.cftfocus.search.domain.model.Number){
+fun NumberInfoView(number: blblblbl.cftfocus.detailed.domain.model.Number){
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier.fillMaxWidth(),
