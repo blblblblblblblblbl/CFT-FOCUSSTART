@@ -1,5 +1,6 @@
 package blblblbl.cftfocus.search.presentation
 
+import android.util.Log
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -25,13 +26,26 @@ class SearchFragmentViewModel @Inject constructor(
     private val _searchedBin = MutableStateFlow<BinInfo?>(null)
     val searchedBin = _searchedBin.asStateFlow()
 
+    private val _errorMessage = MutableStateFlow<String?>(null)
+    val errorMessage = _errorMessage.asStateFlow()
+
+    fun errorMessageShown(){
+        _errorMessage.value = null
+    }
+
     fun updateSearchQuery(query: String) {
         _searchQuery.value = query
     }
 
     fun search(query: String) {
         viewModelScope.launch {
-            _searchedBin.value = searchUseCase.execute(query = query)
+            try {
+                _searchedBin.value = searchUseCase.execute(query = query)
+            }
+            catch(e:Throwable) {
+                _errorMessage.value = e.message
+            }
+
         }
     }
     companion object{
