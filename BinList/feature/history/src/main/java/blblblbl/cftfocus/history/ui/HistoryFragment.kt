@@ -28,19 +28,10 @@ fun HistoryFragmentCompose(
     Surface {
         val lazyHistoryItems: LazyPagingItems<HistoryElement> =
             viewModel.pagedHistory.collectAsLazyPagingItems()
-        LazyColumn() {
-            items(lazyHistoryItems) { item ->
-                item?.query?.let{query ->
-                    Card(modifier = Modifier.padding(10.dp).fillMaxWidth().clickable { itemOnClick(query) }) {
-                        Column(modifier = Modifier.padding(10.dp)) {
-                            Text(text = query, style = MaterialTheme.typography.bodyMedium)
-                            item.binInfo?.bank?.name?.let { name ->
-                                Text(text = name, style = MaterialTheme.typography.bodyMedium)
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        HistoryScreen(
+            pagedHistory = viewModel.pagedHistory,
+            itemOnClick = itemOnClick
+        )
+
     }
 }
