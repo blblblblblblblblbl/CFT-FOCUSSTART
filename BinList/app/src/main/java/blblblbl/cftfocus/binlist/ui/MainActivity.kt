@@ -5,14 +5,21 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.dynamicDarkColorScheme
+import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.unit.dp
+import androidx.core.graphics.toColor
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -27,6 +34,7 @@ import blblblbl.cftfocus.binlist.navigation.appTabRowScreens
 import blblblbl.cftfocus.binlist.navigation.graphs.historyGraph
 import blblblbl.cftfocus.binlist.ui.theming.AppTheme
 import blblblbl.cftfocus.search.ui.SearchFragmentCompose
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.google.android.material.elevation.SurfaceColors
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -37,10 +45,13 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContent {
+            val systemUiController = rememberSystemUiController()
             AppTheme() {
-                val color = MaterialTheme.colorScheme.secondaryContainer.toArgb()
-                window.statusBarColor = color
-                window.navigationBarColor = color
+                val useDarkIcons = !isSystemInDarkTheme()
+                val color = MaterialTheme.colorScheme.surfaceColorAtElevation(5.dp)
+                SideEffect {
+                    systemUiController.setSystemBarsColor(color, darkIcons = useDarkIcons)
+                }
                 AppScreen()
             }
         }

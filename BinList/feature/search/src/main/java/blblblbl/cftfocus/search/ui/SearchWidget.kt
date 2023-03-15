@@ -19,6 +19,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import blblblbl.cftfocus.search.R
+import com.google.android.material.elevation.SurfaceColors
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -34,9 +35,9 @@ fun SearchWidget(
             .semantics {
                 contentDescription = "SearchWidget"
             }
-            .border(width = 2.dp, color = MaterialTheme.colorScheme.secondary, shape = CircleShape),
+            .border(width = 2.dp, color = MaterialTheme.colorScheme.outline, shape = CircleShape),
         color = MaterialTheme.colorScheme.primary,
-        shape = CircleShape
+        shape = CircleShape,
     ) {
         TextField(
             modifier = Modifier
@@ -56,13 +57,13 @@ fun SearchWidget(
             singleLine = true,
             leadingIcon = {
                 IconButton(
-                    modifier = Modifier
-                        .alpha(alpha = 0.5f),
+                    modifier = Modifier,
                     onClick = {onSearchClicked(text)}
                 ) {
                     Icon(
                         imageVector = Icons.Default.Search,
-                        contentDescription = "Search Icon"
+                        contentDescription = "Search Icon",
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             },
@@ -82,7 +83,8 @@ fun SearchWidget(
                 ) {
                     Icon(
                         imageVector = Icons.Default.Close,
-                        contentDescription = "Close Icon"
+                        contentDescription = "Close Icon",
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 }
             },
