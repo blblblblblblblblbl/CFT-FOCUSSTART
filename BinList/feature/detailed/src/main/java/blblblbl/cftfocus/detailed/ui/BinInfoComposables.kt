@@ -68,12 +68,12 @@ fun BankInfoView(
     urlOnClick: () -> Unit,
     phoneOnClick: () -> Unit
 ) {
-    Column(modifier = Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(10.dp)) {
+    Column(modifier = Modifier.fillMaxWidth().testTag("BankInfoView"), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(10.dp)) {
         bank.name?.let { name ->
             Text(
                 text = name,
                 style = MaterialTheme.typography.headlineLarge.copy(textAlign = TextAlign.Center),
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth().testTag("textBankName")
             )
         }
         bank.url?.let { url ->
@@ -83,6 +83,7 @@ fun BankInfoView(
                     text = url,
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier
+                        .testTag("textBankUrl")
                         .clickable {
                             urlOnClick()
                         }
@@ -97,7 +98,7 @@ fun BankInfoView(
             bank.city?.let {city->
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Text(text = stringResource(id = R.string.city), style = MaterialTheme.typography.headlineMedium)
-                    Text(text = city, style = MaterialTheme.typography.bodyMedium)
+                    Text(text = city, style = MaterialTheme.typography.bodyMedium, modifier = Modifier.testTag("textBankCity"))
                 }
             }
             bank.phone?.let {phone->
@@ -107,7 +108,7 @@ fun BankInfoView(
                         Text(
                             text = phone,
                             style = MaterialTheme.typography.bodyMedium,
-                            modifier = Modifier.clickable { phoneOnClick() }
+                            modifier = Modifier.clickable { phoneOnClick() }.testTag("textBankPhone")
                         )
                     }
                 }
@@ -122,17 +123,17 @@ fun CountryInfoView(
 ){
 
     Column(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier.fillMaxWidth().testTag("CountryInfoView"),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         country.name?.let {name->
             Text(text = stringResource(id = R.string.country), style = MaterialTheme.typography.headlineMedium)
             Row(verticalAlignment = Alignment.CenterVertically) {
                 country.name?.let {name->
-                    Text(text = name, style = MaterialTheme.typography.bodyMedium)
+                    Text(text = name, style = MaterialTheme.typography.bodyMedium, modifier = Modifier.testTag("textCountryName"))
                 }
                 country.emoji?.let { emoji->
-                    Text(text = emoji)
+                    Text(text = emoji, modifier = Modifier.testTag("textCountryEmoji"))
                 }
                 if (country.latitude!=null&&country.longitude!=null){
                     LocationButton(
@@ -152,7 +153,7 @@ fun CardInfoView(
     brand: String? = null,
     prepaid: Boolean? = null){
     Column(
-        Modifier.fillMaxWidth(),
+        Modifier.fillMaxWidth().testTag("CardInfoView"),
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
         Row(
@@ -165,13 +166,13 @@ fun CardInfoView(
             scheme?.let {scheme->
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Text(text = stringResource(id = R.string.scheme), style = MaterialTheme.typography.headlineMedium)
-                    Text(text = scheme, style = MaterialTheme.typography.bodyMedium)
+                    Text(text = scheme, style = MaterialTheme.typography.bodyMedium, modifier = Modifier.testTag("textCardInfoScheme"))
                 }
             }
             type?.let {type->
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Text(text = stringResource(id = R.string.type), style = MaterialTheme.typography.headlineMedium)
-                    Text(text = type, style = MaterialTheme.typography.bodyMedium)
+                    Text(text = type, style = MaterialTheme.typography.bodyMedium, modifier = Modifier.testTag("textCardInfoType"))
                 }
 
             }
@@ -187,13 +188,13 @@ fun CardInfoView(
             brand?.let {brand->
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Text(text = stringResource(id = R.string.brand), style = MaterialTheme.typography.headlineMedium)
-                    Text(text = brand, style = MaterialTheme.typography.bodyMedium)
+                    Text(text = brand, style = MaterialTheme.typography.bodyMedium, modifier = Modifier.testTag("textCardInfoBrand"))
                 }
             }
             prepaid?.let {prepaid->
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Text(text = stringResource(id = R.string.prepaid), style = MaterialTheme.typography.headlineMedium)
-                    Row {
+                    Row(modifier = Modifier.testTag("textCardInfoPrepaid")) {
                         Text(text = stringResource(id = R.string.yes), style = MaterialTheme.typography.bodyMedium, modifier = Modifier.alpha(if (prepaid) 1f else 0.5f))
                         Text(text = "/", style = MaterialTheme.typography.bodyMedium)
                         Text(text = stringResource(id = R.string.no), style = MaterialTheme.typography.bodyMedium, modifier = Modifier.alpha(if (!prepaid) 1f else 0.5f))
@@ -210,19 +211,19 @@ fun CardInfoView(
 fun NumberInfoView(number: blblblbl.cftfocus.detailed.domain.model.Number){
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier.fillMaxWidth().testTag("NumberInfoView"),
         horizontalArrangement = Arrangement.SpaceEvenly
     ) {
         number.length?.let {length->
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Text(text = stringResource(id = R.string.length), style = MaterialTheme.typography.headlineMedium)
-                Text(text = "$length", style = MaterialTheme.typography.bodyMedium)
+                Text(text = "$length", style = MaterialTheme.typography.bodyMedium, modifier = Modifier.testTag("textNumberInfoLength"))
             }
         }
         number.luhn?.let {luhn->
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Text(text = stringResource(id = R.string.luhn), style = MaterialTheme.typography.headlineMedium)
-                Row {
+                Row(modifier = Modifier.testTag("textNumberInfoLuhn")) {
                     Text(text = stringResource(id = R.string.yes), style = MaterialTheme.typography.bodyMedium, modifier = Modifier.alpha(if (luhn) 1f else 0.5f))
                     Text(text = "/", style = MaterialTheme.typography.bodyMedium)
                     Text(text = stringResource(id = R.string.no), style = MaterialTheme.typography.bodyMedium, modifier = Modifier.alpha(if (!luhn) 1f else 0.5f))
