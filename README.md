@@ -47,12 +47,10 @@ This android application works with binlist.net api
 
 ## Screenshots
 
-<img src="https://github.com/blblblblblblblblbl/Unsplash-API-app/blob/main/gifs/onboarding.gif" width = 240><img src="https://github.com/blblblblblblblblbl/Unsplash-API-app/blob/main/gifs/mainfeed.gif" width = 240><img src="https://github.com/blblblblblblblblbl/Unsplash-API-app/blob/main/gifs/upzoomed.gif" width = 240>
+<img src="https://github.com/blblblblblblblblbl/CFT-FOCUSSTART/blob/main/gifs/dark_theme.gif" width = 240><img src="https://github.com/blblblblblblblblbl/CFT-FOCUSSTART/blob/main/gifs/search.gif" width = 240><img src="https://github.com/blblblblblblblblbl/CFT-FOCUSSTART/blob/main/gifs/history.gif" width = 240>
 
-<img src="https://github.com/blblblblblblblblbl/Unsplash-API-app/blob/main/gifs/likezoomed.gif" width = 240><img src="https://github.com/blblblblblblblblbl/Unsplash-API-app/blob/main/gifs/detailedphoto.gif" width = 240><img src="https://github.com/blblblblblblblblbl/Unsplash-API-app/blob/main/gifs/downloadphoto.gif" width = 240>
+<img src="https://github.com/blblblblblblblblbl/CFT-FOCUSSTART/blob/main/gifs/website.gif" width = 240><img src="https://github.com/blblblblblblblblbl/CFT-FOCUSSTART/blob/main/gifs/phone.gif" width = 240><img src="https://github.com/blblblblblblblblbl/CFT-FOCUSSTART/blob/main/gifs/map.gif" width = 240>
 
-<img src="https://github.com/blblblblblblblblbl/Unsplash-API-app/blob/main/gifs/search.gif" width = 240><img src="https://github.com/blblblblblblblblbl/Unsplash-API-app/blob/main/gifs/profile.gif" width = 240><img src="https://github.com/blblblblblblblblbl/Unsplash-API-app/blob/main/gifs/logout.gif" width = 240>
-
-<img src="https://github.com/blblblblblblblblbl/Unsplash-API-app/blob/main/gifs/collections.gif" width = 240> 
+<img src="https://github.com/blblblblblblblblbl/CFT-FOCUSSTART/blob/main/gifs/up_button.gif" width = 240> 
 
 
