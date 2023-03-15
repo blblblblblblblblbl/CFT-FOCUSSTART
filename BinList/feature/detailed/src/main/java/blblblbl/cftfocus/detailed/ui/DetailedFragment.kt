@@ -7,6 +7,7 @@ import android.net.Uri
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -29,7 +30,7 @@ fun DetailedFragmentCompose(bin: String) {
     val context = LocalContext.current
     val phonePermissionState = rememberPermissionState(permission = Manifest.permission.CALL_PHONE)
     binInfo.value?.let {binInfo->
-        Box(modifier = Modifier.fillMaxSize().padding(10.dp)){
+        Surface(modifier = Modifier.fillMaxSize().padding(10.dp)){
             BinInfoView(
                 binInfo = binInfo,
                 urlOnClick = { urlAction(context,binInfo.bank?.url) },
