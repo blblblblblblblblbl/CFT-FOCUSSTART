@@ -40,7 +40,6 @@ This android application works with binlist.net api
 - Material Design 3
 - Material You
 - Room
-- Remote mediator
 - Hilt
 - Unit,UI testing
 - Mockito
