@@ -29,8 +29,6 @@ This android application works with binlist.net api
 - multi-module app
 - Coroutines 
 - Flow
-- OOP
-- SOLID
 - binlist.net api
 - Retrofit2
 - OkHttpClient
