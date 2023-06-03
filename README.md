@@ -4,6 +4,9 @@
 
 This android application works with binlist.net api
 
+# Google play
+
+https://play.google.com/store/apps/details?id=blblblbl.cftfocus.binlist
 
 
 ## Authors
